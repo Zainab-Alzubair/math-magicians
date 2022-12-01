@@ -2,16 +2,20 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
+  background-color: lightgray;
+  border-radius: 0.5rem;
 }
 
 #result {
   background-color: #858694;
   color: white;
-  border: none;
-  margin-top: 0;
-  width: 99%;
-  height: 40px;
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+p {
   text-align: right;
+  padding-right: 1rem;
 }
 
 td {
@@ -24,6 +28,7 @@ td {
   height: 3rem;
   background-color: #e0e0e0;
   border-color: lightgray;
+  border-radius: 0.5rem;
 }
 
 .zero-btn {
@@ -31,6 +36,7 @@ td {
   height: 3rem;
   background-color: #e0e0e0;
   border-color: lightgray;
+  border-radius: 0.5rem;
 }
 
 .calc-orange-button {
@@ -38,4 +44,5 @@ td {
   height: 3rem;
   background-color: #f5913e;
   border-color: lightgray;
+  border-radius: 0.5rem;
 }
