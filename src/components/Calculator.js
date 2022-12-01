@@ -1,121 +1,117 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import calculate from '../logic/calculate';
 
 // eslint-disable-next-line react/prefer-stateless-function
-class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      total: 0,
-      next: null,
-      operation: null,
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Calculator = () => {
+  const resultInput = {
+    total: 0,
+    next: null,
+    operation: null,
+  };
+  const [state, setState] = useState(resultInput);
 
-  handleClick(e) {
+  const handleClick = (e) => {
     // eslint-disable-next-line react/no-access-state-in-setstate
-    this.setState(calculate(this.state, e.target.value));
-  }
+    setState(calculate(state, e.target.value));
+  };
 
-  render() {
-    const { total, next, operation } = this.state;
-    return (
-      <table id="calcu">
-        <tr>
-          <td colSpan="4" id="result">
-            <p>
-              {total}
-              {operation}
-              {next}
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="button" value="AC" className="calc-button" onClick={this.handleClick} />
+  const { total, next, operation } = state;
+  return (
+    <table id="calcu">
+      <tr>
+        <td colSpan="4" id="result">
+          <p>
+            {total}
+            {operation}
+            {next}
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="AC" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="+/-" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="+/-" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="%" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="%" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="+" className="calc-orange-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="+" className="calc-orange-button" onClick={handleClick} />
 
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="button" value="7" className="calc-button" onClick={this.handleClick} />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="7" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="8" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="8" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="9" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="9" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="x" className="calc-orange-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="x" className="calc-orange-button" onClick={handleClick} />
 
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="button" value="4" className="calc-button" onClick={this.handleClick} />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="4" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="5" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="5" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="6" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="6" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="-" className="calc-orange-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="-" className="calc-orange-button" onClick={handleClick} />
 
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="button" value="1" className="calc-button" onClick={this.handleClick} />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="1" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="2" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="2" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="3" className="calc-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="3" className="calc-button" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="÷" className="calc-orange-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="÷" className="calc-orange-button" onClick={handleClick} />
 
-          </td>
-        </tr>
-        <tr>
-          <td colSpan="3">
-            <input type="button" value="0" className="zero-btn" onClick={this.handleClick} />
+        </td>
+      </tr>
+      <tr>
+        <td colSpan="3">
+          <input type="button" value="0" className="zero-btn" onClick={handleClick} />
 
-          </td>
-          <td>
-            <input type="button" value="=" className="calc-orange-button" onClick={this.handleClick} />
+        </td>
+        <td>
+          <input type="button" value="=" className="calc-orange-button" onClick={handleClick} />
 
-          </td>
-        </tr>
-      </table>
-    );
-  }
-}
+        </td>
+      </tr>
+    </table>
+  );
+};
+
 export default Calculator;
